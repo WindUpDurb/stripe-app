@@ -83,8 +83,10 @@ userSchema.statics.authenticate = function (loginData, callback) {
 };
 
 userSchema.statics.authorization = function (requiredRole) {
+    console.log("Here")
     return function (request, response, next) {
         let token = request.cookies.accessToken;
+        console.log("token: ", token)
         jwt.decode(JWT_SECRET, token, function (error, payload) {
             if (error) return response.status(401).send({ error: "Authentication failed." });
             User.findById(payload._id, function (error, user) {
@@ -92,6 +94,7 @@ userSchema.statics.authorization = function (requiredRole) {
                 if (requiredRole === "Admin" && user.authorization !== "Admin") {
                     return response.status(403).send({ error: "Not authorized" });
                 }
+                request.user = user;
                 next();
             }).select("-password");
         })

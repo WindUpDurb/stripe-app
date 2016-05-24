@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/css/ripples.min.css">
     <link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Personal CSS-->
     <link rel="stylesheet" href="/css/style.css">
 
@@ -24,36 +25,77 @@
 
 </head>
 <body ng-app="stripeApp" ng-controller="mainController">
+
 <!--Header-->
-<div class="navbar navbar-fixed-top" style="background-color : white; margin-bottom : 0px">
+<div class="navbar navbar-fixed-top" style="background-color : #3F51B5; margin-bottom : 0px">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="pull-left" style="color : #E91E63" ng-href="/"><strong>WindUpDurb</strong></a>
+        <div class="row">
+            <div class="navbar-header">
+                <a class="pull-left" style="color : #E3F2FD" ng-href="/">WindUpDurb</a>
+            </div>
         </div>
 
         <div class="row">
+            <div ng-if="!activeUser"  class="col-sm-2 col-sm-offset-9">
+                <button type="button" ui-sref="login" class="btn">Login</button>
+            </div>
+
+            <div ng-if="activeUser"  class="col-sm-2 col-sm-offset-9">
+                <button type="button" class="btn">Logout</button>
+            </div>
+
+            <div class="col-sm-1" style="margin-top: 15px">
+                <i class="material-icons">add_shopping_cart</i>
+            </div>
+        </div>
+
+        <!--<div class="row">
             <div class="col-sm-2 col-sm-offset-4">
 
-   <!--             <div ng-controller="dropdownController">
+                <div ng-if="activeUser" ng-controller="dropdownController">
                     <div uib-dropdown is-open="status.isopen" class="btn-group text-center">
-                        <button style="background-color : #3F51B5; color : #FF4081" uib-dropdown-toggle ng-disabled="disabled" id="single-button" type="button" class="btn btn-primary">
-                            <strong>Directory</strong><span class="caret"></span>
+                        <button style="background-color : #3F51B5; color : #b5a33f" uib-dropdown-toggle ng-disabled="disabled" id="single-button" type="button" class="btn btn-primary">
+                            <strong>Account</strong><span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-                            <li ui-sref="activeAuctions"><a>Active Auctions</a></li>
+                            <li ui-sref="activeAuctions"><a>Stuff</a></li>
                             <li role="menuitem"><a href="#">Something else here</a></li>
                             <li class="divider"></li>
                             <li ui-sref="accountManagement"><a>Account Management</a></li>
                             <li ng-click="logout()"  role="menuitem"><a>Logout</a></li>
                         </ul>
                     </div>
-                </div>-->
+                </div>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>
+<!--End of Header-->
 
 
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul>
+            <li>
+                <a href="">Beer</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+        <div ui-view="body" id="body" class="container">
+            <h1 class="text-center">Store Front</h1>
+        </div>
+
+    </div>
+    <!-- /#page-content-wrapper -- Keep Above -->
+
+</div>
+<!-- /#wrapper -->
 
 
 

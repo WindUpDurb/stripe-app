@@ -49,7 +49,12 @@ router.post("/login", function (request, response) {
     });
 });
 
-router.post("/logout", function (request, response) {
+router.get("/activeUser", User.authorization, function (request, response) {
+    let activeUser = request.user;
+    response.send(activeUser);
+});
+
+router.delete("/logout", function (request, response) {
     response.clearCookie("accessToken").send();
 });
 

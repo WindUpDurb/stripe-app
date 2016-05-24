@@ -6,8 +6,17 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider
         .state("home", {
-            url : "/"
+            url: "/"
         })
+        .state("login", {
+            url: "/login",
+            views : {
+                "body" : {
+                    templateUrl: "/html/login.html",
+                    controller: "loginController"
+                }
+            }
+        });
 
 
     $urlRouterProvider.otherwise("/");
