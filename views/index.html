@@ -7,6 +7,9 @@
     <script src="/bower_components/angular/angular.min.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/css/ripples.min.css">
     <link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
@@ -20,7 +23,40 @@
 
 
 </head>
-<body ng-app="nameOfApp" ng-controller="mainController">
+<body ng-app="stripeApp" ng-controller="mainController">
+<!--Header-->
+<div class="navbar navbar-fixed-top" style="background-color : white; margin-bottom : 0px">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="pull-left" style="color : #E91E63" ng-href="/"><strong>WindUpDurb</strong></a>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-2 col-sm-offset-4">
+
+   <!--             <div ng-controller="dropdownController">
+                    <div uib-dropdown is-open="status.isopen" class="btn-group text-center">
+                        <button style="background-color : #3F51B5; color : #FF4081" uib-dropdown-toggle ng-disabled="disabled" id="single-button" type="button" class="btn btn-primary">
+                            <strong>Directory</strong><span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                            <li ui-sref="activeAuctions"><a>Active Auctions</a></li>
+                            <li role="menuitem"><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li ui-sref="accountManagement"><a>Account Management</a></li>
+                            <li ng-click="logout()"  role="menuitem"><a>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 
 </body>
 </html>

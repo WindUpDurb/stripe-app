@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module("nameOfApp", ["ui.router"]);
+var app = angular.module("stripeApp", ["ui.router", "ngAnimate", "ui.bootstrap"]);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
 
