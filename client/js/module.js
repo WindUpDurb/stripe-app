@@ -12,8 +12,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: "/login",
             views : {
                 "body" : {
-                    templateUrl: "/html/login.html",
-                    controller: "loginController"
+                    templateUrl: "/html/login.html"
                 }
             }
         });

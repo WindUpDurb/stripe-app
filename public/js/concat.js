@@ -12,8 +12,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: "/login",
             views : {
                 "body" : {
-                    templateUrl: "/html/login.html",
-                    controller: "loginController"
+                    templateUrl: "/html/login.html"
                 }
             }
         });
@@ -27,7 +26,7 @@ var app = angular.module("stripeApp");
 
 app.controller("mainController", function (AuthServices, $scope, $state) {
     console.log("Main Controller");
-    
+
     AuthServices.isActiveUser()
         .then(function (response) {
             console.log("Active User: ", response.data);
@@ -63,7 +62,7 @@ app.controller("mainController", function (AuthServices, $scope, $state) {
 
 });
 
-app.controller("loginController", function (AuthServices, $scope, $state) {
+app.controller("dropdownController", function ($scope, $log) {
     console.log("Login Controller");
     
 });
