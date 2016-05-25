@@ -13,7 +13,7 @@ router.route("/")
             response.send(stockList);
         })
     })
-    .post(User.authorization("Admin"), function (request, response) {
+    .post(User.authorization(), function (request, response) {
         let newStockItem = request.body;
         CurrentStock.addStockItem(newStockItem, function (error, savedItem) {
             if (error) response.status(400).send(error);
