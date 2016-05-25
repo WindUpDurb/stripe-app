@@ -3,17 +3,12 @@
 var app = angular.module("stripeApp");
 
 app.controller("mainController", function (AuthServices, StockServices, $scope, $state) {
-    console.log("Main Controller");
-
     $scope.personalShoppingCart = StockServices.personalShoppingCart;
-
-    console.log("shopping cart: ", $scope.personalShoppingCart);
 
     $scope.marketplaceCategories = [];
 
     AuthServices.isActiveUser()
         .then(function (response) {
-            console.log("Active User: ", response.data);
             $scope.activeUser = response.data;
             if (response.data.authorization === "Admin") {
                 $scope.admin = true;
@@ -26,9 +21,7 @@ app.controller("mainController", function (AuthServices, StockServices, $scope, 
     StockServices.getEntireStock()
         .then(function (response) {
             $scope.marketStock = response.data;
-            console.log("response data: ", response.data)
             response.data.forEach(function (item) {
-                console.log("item: ", item)
                 if ($scope.marketplaceCategories.indexOf(item.category) === -1 ) {
                     $scope.marketplaceCategories.push(item.category);
                 }
@@ -41,7 +34,6 @@ app.controller("mainController", function (AuthServices, StockServices, $scope, 
     $scope.login = function (loginData) {
         AuthServices.login(loginData)
             .then(function (response) {
-                console.log("response.data: ", response.data);
                 $scope.activeUser = response.data;
                 if (response.data.authorization === "Admin") {
                     $scope.admin = true;
@@ -75,8 +67,6 @@ app.controller("shoppingCartController", function ($scope, StockServices) {
 
 
 app.controller("stockManagementController", function ($scope, $state, StockServices) {
-    console.log("Stock Management Controller");
-
     if ($state.current.name === "listAllStock" || "updateItem") {
         StockServices.getEntireStock()
             .then(function (response) {
@@ -90,7 +80,6 @@ app.controller("stockManagementController", function ($scope, $state, StockServi
     $scope.addItemToStock = function (newStockData) {
         StockServices.addItemToStock(newStockData)
             .then(function (response) {
-                console.log(response.data);
                 $state.go("stockManagement");
 
             })
@@ -114,7 +103,6 @@ app.controller("stockManagementController", function ($scope, $state, StockServi
 });
 
 app.controller("categoryContentsController", function ($stateParams, $scope, StockServices) {
-    console.log("Category Contents");
      $scope.currentCategory = $stateParams.category;
     StockServices.getCategoryContents($scope.currentCategory)
         .then(function (response) {
@@ -127,14 +115,11 @@ app.controller("categoryContentsController", function ($stateParams, $scope, Sto
 });
 
 app.controller("itemDetailsController", function ($stateParams, $scope, StockServices) {
-   console.log("Item Details Controller");
-    
     let currentItemId = $stateParams.itemId;
     
     StockServices.getItem(currentItemId)
         .then(function (response) {
             $scope.currentItem = response.data;
-            console.log("current item: ", response.data)
         })
         .catch(function (error) {
             console.log("Error: ", error);
@@ -148,9 +133,8 @@ app.controller("itemDetailsController", function ($stateParams, $scope, StockSer
     
 });
 
-//needed for the dropdown
+//need for the dropdown
 app.controller("dropdownController", function ($scope, $log) {
-    console.log("Drop-down Controller");
 });
 
 
