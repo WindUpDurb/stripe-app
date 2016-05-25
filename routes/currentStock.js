@@ -14,7 +14,7 @@ router.route("/")
         })
     })
     //add user auth after test
-    .post( function (request, response) {
+    .post(function (request, response) {
         let newStockItem = request.body;
         CurrentStock.addStockItem(newStockItem, function (error, savedItem) {
             if (error) response.status(400).send(error);
