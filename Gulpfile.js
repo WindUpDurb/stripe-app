@@ -40,5 +40,5 @@ gulp.task("watch.html", function () {
 
 gulp.task("html", function () {
     return gulp.src("./client/html/**/")
-        .pipe(gulp.dest("./public/html"))
+        .pipe(gulp.dest("./public/html"));
 });

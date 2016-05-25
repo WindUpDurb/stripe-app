@@ -17,3 +17,31 @@ app.service("AuthServices", function ($http) {
     };
 
 });
+
+app.service("StockServices", function ($http) {
+
+    this.addItemToStock = function (newStockData) {
+        return $http.post("/api/currentStock", newStockData);
+    };
+    
+    this.getEntireStock = function () {
+        return $http.get("/api/currentStock");
+    };
+    
+    this.getCategoryContents = function (category) {
+        return $http.get(`/api/currentStock/category/${category}`);
+    };
+    
+    this.deleteItemFromStock = function (itemToDelete) {
+        return $http.post("/api/currentStock/deleteStockItem", itemToDelete);
+    };
+    
+    this.getItem = function (itemId) {
+        return $http.get(`/api/currentStock/item/${itemId}`);
+    };
+    
+});
+
+
+
+

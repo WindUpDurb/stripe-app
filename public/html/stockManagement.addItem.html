@@ -1,0 +1,53 @@
+<div class="text-center">
+    <h1>Stock Management</h1>
+    <h3>Add an item to the stock</h3>
+    <div class="row">
+        <div class="col-sm-1">
+            <a ui-sref="stockManagement">
+                <i class="material-icons">subdirectory_arrow_left</i>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div style="margin-top: 50px" class="well col-sm-6 col-sm-offset-3">
+
+            <form ng-submit="addItemToStock(newItem)">
+
+                <div class="form-group label-static">
+                    <label class="control-label">Enter the Item Name</label>
+                    <input ng-model="newItem.item" type="text" class="form-control" placeholder="Item Name">
+                </div>
+
+
+                <div class="form-group label-static">
+                    <label class="control-label">Enter a description for the item</label>
+                    <input ng-model="newItem.itemDescription" type="text" class="form-control" placeholder="Item Description">
+                </div>
+
+
+                <div class="form-group label-static">
+                    <label class="control-label">Enter the quantity of the item in stock</label>
+                    <input ng-model="newItem.quantityInStock" type="number" class="form-control" placeholder="Item Quantity">
+                </div>
+
+                <div class="form-group label-static">
+                    <label class="control-label">Enter the price for each item</label>
+                    <input ng-model="newItem.price" type="number" class="form-control" placeholder="Item Price">
+                </div>
+
+                <div class="form-group label-static">
+                    <label class="control-label">Enter the category the item belongs to</label>
+                    <input ng-model="newItem.category" type="text" class="form-control" placeholder="Item Category">
+                </div>
+                <br>
+                <br>
+                <button class="btn btn-primary">Add Item to the Stock</button>
+            </form>
+        </div>
+
+    </div>
+
+
+</div>

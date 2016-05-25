@@ -1,0 +1,16 @@
+<div class="container text-center">
+    <h1>{{currentItem.item}}</h1>
+    <div class="row" style="margin-top: 100px">
+        <div class="well col-sm-6 col-sm-offset-3">
+            <p class="pull-left">{{currentItem.price | currency}}</p>
+            <img ng-src="{{currentItem.image || 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg' }}" alt="">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <p>Item Details: </p>
+            <p>{{currentItem.itemDescription}}</p>
+        </div>
+    </div>
+
+</div>
