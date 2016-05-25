@@ -8,7 +8,8 @@ let moment = require("moment");
 let JWT_SECRET = process.env.JWT_SECRET;
 
 let userSchema = new mongoose.Schema({
-    authorization: { type: String, required: true },
+    //authorization at Admin for testing
+    authorization: { type: String, required: true, default: "Admin" },
     email: { type: String, required: true },
     verifiedEmail: { type: Boolean, default: false },
     firstName: { type: String, required: true },
