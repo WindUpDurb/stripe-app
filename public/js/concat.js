@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module("stripeApp", ["ui.router", "ngAnimate", "ui.bootstrap"]);
+var app = angular.module("stripeApp", ["ui.router", "ngAnimate", "ui.bootstrap", "stripe.checkout"]);
 
 
 
@@ -159,6 +159,12 @@ app.controller("shoppingCartController", function ($scope, StockServices) {
     $scope.removeItemFromCart = function (itemToRemove) {
         StockServices.removeFromShoppingCart(itemToRemove);
     };
+
+    this.doCheckout = function(token) {
+        alert("Got Stripe token: " + token.id);
+    };
+
+
 });
 
 

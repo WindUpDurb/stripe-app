@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module("stripeApp", ["ui.router", "ngAnimate", "ui.bootstrap"]);
+var app = angular.module("stripeApp", ["ui.router", "ngAnimate", "ui.bootstrap", "stripe.checkout"]);
 
 
 
