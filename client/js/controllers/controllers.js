@@ -56,6 +56,22 @@ app.controller("mainController", function (AuthServices, StockServices, $scope, 
             });
     };
 
+    $scope.register = function (newUser) {
+
+        if (newUser.password === newUser.passwordConfirm) {
+            AuthServices.registerNewUser(newUser)
+                .then(function (response) {
+                    $state.go("home");
+                })
+                .catch(function (error) {
+                    console.log("Error: ", error);
+                });
+        } else {
+            alert("Your passwords must match")
+        };
+
+    };
+
 });
 
 app.controller("shoppingCartController", function ($scope, StockServices) {

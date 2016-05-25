@@ -16,6 +16,10 @@ app.service("AuthServices", function ($http) {
         return $http.get("/api/users/activeUser");
     };
 
+    this.registerNewUser = function (newUser) {
+        return $http.post("/api/users", newUser);
+    }
+
 });
 
 app.service("StockServices", function ($http) {

@@ -18,6 +18,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state("register", {
+            url: "/register",
+            views: {
+                "body": {
+                    templateUrl: "/html/register.html"
+                }
+            }
+        })
         .state("shoppingCart", {
             url: "/shoppingCart",
             views: {

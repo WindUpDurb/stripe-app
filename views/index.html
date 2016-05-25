@@ -42,8 +42,12 @@
         </div>
 
         <div class="row">
-            <div ng-if="!activeUser"  class="col-sm-2 col-sm-offset-8">
+            <div ng-if="!activeUser"  class="col-sm-1 col-sm-offset-8">
                 <button type="button" ui-sref="login" class="btn">Login</button>
+            </div>
+
+            <div ng-if="!activeUser"  class="col-sm-1">
+                <button type="button" ui-sref="register" class="btn">Register</button>
             </div>
 
             <div ng-if="activeUser" ng-controller="dropdownController" class="col-sm-2 col-sm-offset-8">

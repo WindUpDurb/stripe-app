@@ -18,6 +18,14 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state("register", {
+            url: "/register",
+            views: {
+                "body": {
+                    templateUrl: "/html/register.html"
+                }
+            }
+        })
         .state("shoppingCart", {
             url: "/shoppingCart",
             views: {
@@ -94,6 +102,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise("/");
 });
+/*"use strict";
+
+var app = angular.module("stripeApp");
+
+app.factory("MainSocket", function (socketFactory) {
+    var service = socketFactory();
+    service.forward('error');
+    return service;
+});*/
+
 "use strict";
 
 var app = angular.module("stripeApp");
@@ -150,6 +168,22 @@ app.controller("mainController", function (AuthServices, StockServices, $scope, 
             .catch(function (error) {
                 console.log("Error: ", error);
             });
+    };
+
+    $scope.register = function (newUser) {
+
+        if (newUser.password === newUser.passwordConfirm) {
+            AuthServices.registerNewUser(newUser)
+                .then(function (response) {
+                    $state.go("home");
+                })
+                .catch(function (error) {
+                    console.log("Error: ", error);
+                });
+        } else {
+            alert("Your passwords must match")
+        };
+
     };
 
 });
@@ -242,16 +276,6 @@ app.controller("dropdownController", function ($scope, $log) {
 
 
 
-/*"use strict";
-
-var app = angular.module("stripeApp");
-
-app.factory("MainSocket", function (socketFactory) {
-    var service = socketFactory();
-    service.forward('error');
-    return service;
-});*/
-
 "use strict";
 
 var app = angular.module("stripeApp");
@@ -269,6 +293,10 @@ app.service("AuthServices", function ($http) {
     this.isActiveUser = function () {
         return $http.get("/api/users/activeUser");
     };
+
+    this.registerNewUser = function (newUser) {
+        return $http.post("/api/users", newUser);
+    }
 
 });
 
