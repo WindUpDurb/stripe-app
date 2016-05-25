@@ -16,6 +16,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 }
             }
         })
+        .state("shoppingCart", {
+            url: "/shoppingCart",
+            views: {
+                "body": {
+                    templateUrl: "/html/shoppingCart.html",
+                    controller: "shoppingCartController"
+                }
+            }
+        })
         .state("categoryContents", {
             url: "/categories/:category",
             views: {

@@ -20,6 +20,17 @@ app.service("AuthServices", function ($http) {
 
 app.service("StockServices", function ($http) {
 
+    this.personalShoppingCart = [];
+
+    this.addToShoppingCart = function (itemToAdd) {
+      this.personalShoppingCart.push(itemToAdd);
+    };
+
+    this.removeFromShoppingCart = function (itemToRemove) {
+        let index = this.personalShoppingCart.indexOf(itemToRemove);
+        this.personalShoppingCart.splice(index, 1);
+    };
+
     this.addItemToStock = function (newStockData) {
         return $http.post("/api/currentStock", newStockData);
     };

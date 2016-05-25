@@ -5,6 +5,10 @@ var app = angular.module("stripeApp");
 app.controller("mainController", function (AuthServices, StockServices, $scope, $state) {
     console.log("Main Controller");
 
+    $scope.personalShoppingCart = StockServices.personalShoppingCart;
+
+    console.log("shopping cart: ", $scope.personalShoppingCart);
+
     $scope.marketplaceCategories = [];
 
     AuthServices.isActiveUser()
@@ -60,6 +64,13 @@ app.controller("mainController", function (AuthServices, StockServices, $scope, 
             });
     };
 
+});
+
+app.controller("shoppingCartController", function ($scope, StockServices) {
+   console.log("Shopping Cart Controller");
+    $scope.removeItemFromCart = function (itemToRemove) {
+        StockServices.removeFromShoppingCart(itemToRemove);
+    };
 });
 
 
@@ -128,13 +139,18 @@ app.controller("itemDetailsController", function ($stateParams, $scope, StockSer
         .catch(function (error) {
             console.log("Error: ", error);
         });
+
+
+    $scope.addToShoppingCart = function () {
+        StockServices.addToShoppingCart($scope.currentItem);
+        alert("The item has been added to your cart.")
+    };
     
 });
 
 //needed for the dropdown
 app.controller("dropdownController", function ($scope, $log) {
-    console.log("Login Controller");
-    
+    console.log("Drop-down Controller");
 });
 
 
